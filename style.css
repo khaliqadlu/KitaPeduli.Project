@@ -1,0 +1,280 @@
+:root {
+  --color-primary: #1E4A2B;
+  --color-primary-light: #2F7A3E;
+  --color-accent: #F4B942;
+  --color-bg: #F5FAF5;
+  --color-bg-alt: #EEF5EB;
+  --color-surface: #FFFFFF;
+  --color-text: #1A2E1F;
+  --color-text-soft: #4D6654;
+  --color-border: #DCE7DC;
+
+  --font-main: 'Inter', sans-serif;
+
+  --container-width: 900px;
+  --container-padding: 1.5rem;
+  --section-padding: 5rem 0;
+
+  --radius-sm: 10px;
+  --radius-lg: 22px;
+  --radius-pill: 999px;
+  --transition: 0.25s ease;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--color-bg);
+  color: var(--color-text);
+  line-height: 1.6;
+}
+
+ul { list-style: none; }
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 var(--container-padding);
+}
+
+/* NAVBAR */
+.navbar {
+  background: var(--color-surface);
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+.navbar-inner {
+  min-height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+.navbar-brand {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: var(--color-primary);
+  white-space: nowrap;
+}
+.navbar-logo {
+  width: 36px;
+  height: 36px;
+  object-fit: contain;
+  display: block;
+}
+.navbar-brand-text {
+  font-weight: 700;
+  font-size: 1.05rem;
+}
+.navbar-menu {
+  display: flex;
+  align-items: center;
+  gap: 1.75rem;
+}
+.navbar-link {
+  font-size: 0.95rem;
+  font-weight: 500;
+  color: var(--color-text-soft);
+  transition: var(--transition);
+}
+.navbar-link:hover:not(.disabled) {
+  color: var(--color-primary);
+}
+.navbar-link.disabled {
+  color: #B5C4B8;
+  cursor: not-allowed;
+  font-style: italic;
+}
+
+/* HERO */
+.hero {
+  background: url('./img/hero-bg.png') no-repeat center center/cover; /* background dikosongkan, siap diisi image */
+  text-align: center;
+  padding: 7rem 0 6rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-inner {
+  position: relative;
+  z-index: 1;
+}
+.hero-title {
+  font-size: clamp(2.8rem, 8vw, 5rem);
+  font-weight: 800;
+  color: #FFFFFF;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.25rem;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.35);
+}
+.hero-slogan {
+  font-size: clamp(1rem, 2.5vw, 1.35rem);
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  font-weight: 500;
+  text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* BUTTON */
+.btn {
+  display: inline-block;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 700;
+  padding: 0.9rem 2rem;
+  border-radius: var(--radius-pill);
+  transition: var(--transition);
+  box-shadow: 0 6px 20px rgba(244, 185, 66, 0.35);
+}
+.btn:hover {
+  background: #FFD36B;
+  transform: translateY(-3px);
+}
+
+/* SECTION */
+.section { padding: var(--section-padding); }
+.section-alt { background: var(--color-bg-alt); }
+
+.section-title {
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+.section-sub {
+  text-align: center;
+  color: var(--color-text-soft);
+  max-width: 640px;
+  margin: 0 auto 3rem;
+  line-height: 1.75;
+}
+
+/* CARDS */
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.card {
+  background: var(--color-surface);
+  padding: 2rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  text-align: center;
+  transition: var(--transition);
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(30, 74, 43, 0.08);
+  border-color: var(--color-primary-light);
+}
+.card-emoji { font-size: 2.5rem; margin-bottom: 0.75rem; }
+.card-title { font-size: 1.1rem; font-weight: 700; color: var(--color-primary); margin-bottom: 0.5rem; }
+.card-text { font-size: 0.92rem; color: var(--color-text-soft); }
+
+/* TIPS */
+.tips-list {
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+}
+.tips-list li {
+  background: var(--color-surface);
+  padding: 1rem 1.25rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 0.75rem;
+  font-weight: 500;
+  border-left: 4px solid var(--color-accent);
+  transition: var(--transition);
+}
+.tips-list li:hover {
+  transform: translateX(5px);
+  border-left-color: var(--color-primary-light);
+}
+
+.closing {
+  text-align: center;
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+/* ABOUT - PROFILES */
+.profiles {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  max-width: 780px;
+  margin: 0 auto;
+}
+.profile-card {
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2rem 1.5rem;
+  text-align: center;
+  transition: var(--transition);
+}
+.profile-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 28px rgba(30, 74, 43, 0.08);
+  border-color: var(--color-primary-light);
+}
+.profile-number {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--color-accent);
+  color: var(--color-primary);
+  font-weight: 800;
+  font-size: 1.1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1rem;
+}
+.profile-name {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: 0.35rem;
+}
+.profile-role {
+  font-size: 0.85rem;
+  color: var(--color-text-soft);
+  font-style: italic;
+}
+
+/* FOOTER */
+.footer {
+  background: var(--color-primary);
+  color: rgba(255, 255, 255, 0.8);
+  text-align: center;
+  padding: 2rem 0;
+  font-size: 0.9rem;
+}
+.footer p + p { margin-top: 0.35rem; }
+
+/* RESPONSIVE */
+@media (max-width: 600px) {
+  .hero { padding: 5rem 0 4rem; }
+  .section { padding: 3.5rem 0; }
+  .section-title { font-size: 1.6rem; }
+
+  .navbar-inner {
+    flex-direction: column;
+    padding: 0.85rem 0;
+    gap: 0.6rem;
+  }
+  .navbar-menu {
+    gap: 1rem;
+    font-size: 0.85rem;
+  }
+  .navbar-link { font-size: 0.85rem; }
+}
