@@ -398,3 +398,178 @@ function renderDimensiChart() {
         },
         scales: {
           x: { grid: { display: false }, ticks: { font: { weight: "600" } } },
+          y: { min: 3.1, max: 3.55, grid: { color: "#f1f5f9" } }
+        }
+      }
+    });
+  } else {
+    document.getElementById("dimensiChartTitle").textContent = "Perbandingan Skor per Gaya Belajar";
+    document.getElementById("dimensiChartSubtitle").textContent = "Visual (289), Kinestetik (201), dan Auditori (145)";
+
+    const list = datasetEnergi.per_gaya_belajar;
+    dimensiChart = new Chart(ctx, {
+      type: "bar",
+      data: {
+        labels: list.map(g => `${g.gaya_belajar} (${g.jumlah_responden})`),
+        datasets: [{
+          label: "Rata-rata Skor",
+          data: list.map(g => g.rata_rata_skor),
+          backgroundColor: ["#8b5cf6", "#06b6d4", "#10b981"],
+          borderRadius: 8,
+          barThickness: 42
+        }]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: {
+            callbacks: {
+              label: ctx => {
+                const g = list[ctx.dataIndex];
+                return [` Rata-rata Skor: ${g.rata_rata_skor}`, ` Sangat Baik: ${g.kategori_persen["Sangat Baik"]}%`];
+              }
+            }
+          }
+        },
+        scales: {
+          x: { grid: { display: false }, ticks: { font: { weight: "600" } } },
+          y: { min: 3.1, max: 3.55, grid: { color: "#f1f5f9" } }
+        }
+      }
+    });
+  }
+}
+
+// 7. Render Tabel Per Rombel
+function renderRombelTable(selectedJurusan) {
+  const tbody = document.getElementById("rombelTableBody");
+  const query = searchRombel.value.trim().toLowerCase();
+  tbody.innerHTML = "";
+
+  const filtered = datasetEnergi.per_rombel.filter(r => {
+    const matchJur = selectedJurusan === "ALL" || r.jurusan === selectedJurusan;
+    const matchQuery = !query || r.rombel.toLowerCase().includes(query) || r.jurusan.toLowerCase().includes(query);
+    return matchJur && matchQuery;
+  });
+
+  if (filtered.length === 0) {
+    tbody.innerHTML = `<tr><td colspan="9" class="py-8 text-center text-slate-400">Tidak ada rombel yang cocok dengan pencarian.</td></tr>`;
+    return;
+  }
+
+  filtered.forEach(r => {
+    const rank = datasetEnergi.per_rombel.findIndex(item => item.rombel === r.rombel) + 1;
+    const kurangCukup = r.kategori["Cukup"] + r.kategori["Kurang"];
+    const skorBadge = r.rata_rata_skor >= 3.45
+      ? "bg-emerald-100 text-emerald-700"
+      : r.rata_rata_skor >= 3.26
+      ? "bg-blue-100 text-blue-700"
+      : "bg-amber-100 text-amber-700";
+
+    const tr = document.createElement("tr");
+    tr.className = "hover:bg-slate-50 transition";
+    tr.innerHTML = `
+      <td class="py-3 px-4 font-bold text-slate-400">#${rank}</td>
+      <td class="py-3 px-4 font-bold text-slate-800">${r.rombel}</td>
+      <td class="py-3 px-4"><span class="px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-bold text-[11px]">${r.jurusan}</span></td>
+      <td class="py-3 px-4 text-center font-medium">${r.jumlah_responden}</td>
+      <td class="py-3 px-4 text-center"><span class="px-2.5 py-0.5 rounded-full font-extrabold text-[11px] ${skorBadge}">${r.rata_rata_skor.toFixed(2)}</span></td>
+      <td class="py-3 px-4 text-center font-semibold text-slate-700">${r.rata_rata_total} / 40</td>
+      <td class="py-3 px-4 text-center text-emerald-600 font-semibold">${r.kategori["Sangat Baik"]} (${r.kategori_persen["Sangat Baik"]}%)</td>
+      <td class="py-3 px-4 text-center text-blue-600 font-semibold">${r.kategori["Baik"]} (${r.kategori_persen["Baik"]}%)</td>
+      <td class="py-3 px-4 text-center text-slate-500">${kurangCukup} siswa</td>
+    `;
+    tbody.appendChild(tr);
+  });
+}
+
+// Update Seluruh Dashboard
+function updateAll() {
+  const jur = filterJurusan.value;
+  updateKPIs(jur);
+  renderKategoriChart(jur);
+  renderJurusanChart(jur);
+  renderButirChart(jur);
+  renderRombelTable(jur);
+}
+
+// Event Listeners
+filterJurusan.addEventListener("change", updateAll);
+searchRombel.addEventListener("input", () => renderRombelTable(filterJurusan.value));
+
+resetFilterBtn.addEventListener("click", () => {
+  filterJurusan.value = "ALL";
+  searchRombel.value = "";
+  updateAll();
+});
+
+// Toggle Jurusan Chart
+document.getElementById("btnJurusanAvg").addEventListener("click", function () {
+  jurusanMode = "avg";
+  this.className = "px-2.5 py-1 text-xs font-bold rounded-md bg-white text-emerald-700 shadow-sm transition cursor-pointer";
+  document.getElementById("btnJurusanStack").className = "px-2.5 py-1 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer";
+  renderJurusanChart(filterJurusan.value);
+});
+
+document.getElementById("btnJurusanStack").addEventListener("click", function () {
+  jurusanMode = "stack";
+  this.className = "px-2.5 py-1 text-xs font-bold rounded-md bg-white text-emerald-700 shadow-sm transition cursor-pointer";
+  document.getElementById("btnJurusanAvg").className = "px-2.5 py-1 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer";
+  renderJurusanChart(filterJurusan.value);
+});
+
+// Toggle Butir Chart
+document.getElementById("btnButirAvg").addEventListener("click", function () {
+  butirMode = "avg";
+  this.className = "px-3 py-1 text-xs font-bold rounded-md bg-white text-emerald-700 shadow-sm transition cursor-pointer";
+  document.getElementById("btnButirPersen").className = "px-3 py-1 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer";
+  renderButirChart(filterJurusan.value);
+});
+
+document.getElementById("btnButirPersen").addEventListener("click", function () {
+  butirMode = "persen";
+  filterJurusan.value = "ALL";
+  updateKPIs("ALL");
+  renderKategoriChart("ALL");
+  renderJurusanChart("ALL");
+  renderRombelTable("ALL");
+  this.className = "px-3 py-1 text-xs font-bold rounded-md bg-white text-emerald-700 shadow-sm transition cursor-pointer";
+  document.getElementById("btnButirAvg").className = "px-3 py-1 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer";
+  renderButirChart("ALL");
+});
+
+// Toggle Dimensi Chart (Rayon / Gaya Belajar)
+document.getElementById("btnDimensiRayon").addEventListener("click", function () {
+  dimensiMode = "rayon";
+  this.className = "px-2.5 py-1 text-xs font-bold rounded-md bg-white text-emerald-700 shadow-sm transition cursor-pointer";
+  document.getElementById("btnDimensiBelajar").className = "px-2.5 py-1 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer";
+  renderDimensiChart();
+});
+
+document.getElementById("btnDimensiBelajar").addEventListener("click", function () {
+  dimensiMode = "belajar";
+  this.className = "px-2.5 py-1 text-xs font-bold rounded-md bg-white text-emerald-700 shadow-sm transition cursor-pointer";
+  document.getElementById("btnDimensiRayon").className = "px-2.5 py-1 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer";
+  renderDimensiChart();
+});
+
+// Ekspor CSV Data Rombel
+exportCsvBtn.addEventListener("click", () => {
+  const headers = ["Rombel", "Jurusan", "Responden", "Rata-rata Skor", "Rata-rata Total", "Sangat Baik", "Baik", "Cukup", "Kurang"];
+  const rows = datasetEnergi.per_rombel.map(r => [
+    r.rombel, r.jurusan, r.jumlah_responden, r.rata_rata_skor, r.rata_rata_total,
+    r.kategori["Sangat Baik"], r.kategori["Baik"], r.kategori["Cukup"], r.kategori["Kurang"]
+  ]);
+  const csv = "data:text/csv;charset=utf-8," + [headers.join(","), ...rows.map(e => e.join(","))].join("\n");
+  const link = document.createElement("a");
+  link.setAttribute("href", encodeURI(csv));
+  link.setAttribute("download", "rekap_perilaku_energi_rombel.csv");
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+});
+
+// Jalankan aplikasi
+initDashboard();
