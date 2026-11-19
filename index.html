@@ -1,259 +1,168 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KitaPeduli — Analisis Perilaku Hemat Energi Siswa XI</title>
-  <!-- Google Fonts: Plus Jakarta Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <!-- Tailwind CSS CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Chart.js CDN -->
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>KitaPeduli · Hemat Energi</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
-<body class="text-slate-800 antialiased">
+<body>
 
-  <!-- Header / Navbar -->
-  <header class="bg-white border-b border-slate-200 sticky top-0 z-30">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
-      <div class="flex items-center gap-3">
-        <div class="w-11 h-11 rounded-xl bg-gradient-to-br from-emerald-500 to-teal-600 flex items-center justify-center text-white shadow-sm">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2.2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-          </svg>
-        </div>
-      </div>
+    <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="container navbar-inner">
+      <a href="#hero" class="navbar-brand">
+        <img src="./img/logo.png" alt="Logo KitaPeduli" class="navbar-logo">
+        <span class="navbar-brand-text">KitaPeduli</span>
+      </a>
+      <ul class="navbar-menu">
+        <li><a href="#hero" class="navbar-link">Home</a></li>
+        <li><a href="#about" class="navbar-link">About</a></li>
+        <li><a href="#data" class="navbar-link">Data</a></li>
+        <li><span class="navbar-link disabled">Coming Soon</span></li>
+      </ul>
+    </div>
+  </nav>
 
-      <!-- Filter Jurusan Global -->
-      <div class="flex flex-wrap items-center gap-2.5">
-        <div class="flex items-center gap-1.5 bg-slate-100 px-3 py-1.5 rounded-lg border border-slate-200">
-          <label for="filterJurusan" class="text-xs font-semibold text-slate-600">Filter Jurusan:</label>
-          <select id="filterJurusan" class="bg-transparent text-xs font-bold text-slate-800 focus:outline-none cursor-pointer">
-            <option value="ALL">Semua Jurusan (7)</option>
-          </select>
-        </div>
-        <button id="resetFilterBtn" class="px-3 py-1.5 text-xs font-semibold text-slate-600 hover:text-emerald-700 bg-white hover:bg-emerald-50 border border-slate-200 rounded-lg transition cursor-pointer">
-          Reset
-        </button>
-      </div>
+  <!-- HERO -->
+  <header id="hero" class="hero">
+    <div class="container hero-inner">
+      <h1 class="hero-title">KitaPeduli</h1>
+      <p class="hero-slogan">"We Believed, We Could, So We Did"</p>
+      <a href="#aksi" class="btn">Aku Mau Ikut Peduli</a>
     </div>
   </header>
 
-  <!-- Main Dashboard -->
-  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 space-y-6">
+  <!-- KENAPA -->
+  <section id="kenapa" class="section">
+    <div class="container">
+      <h2 class="section-title">Kenapa harus peduli?</h2>
+      <p class="section-sub">Energi yang kita pakai setiap hari itu terbatas dan dampaknya nyata untuk bumi.</p>
 
-    <!-- 4 KPI Cards -->
-    <section class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-      <!-- KPI 1: Partisipasi -->
-      <div class="card-hover bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Total Responden</span>
-          <span class="p-2 rounded-lg bg-blue-50 text-blue-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
-            </svg>
-          </span>
+      <div class="cards">
+        <div class="card">
+          <div class="card-emoji">💪</div>
+          <h3 class="card-title">Hemat Listrik</h3>
+          <p class="card-text">Matikan lampu dan alat elektronik yang tidak dipakai.</p>
         </div>
-        <div class="mt-3 flex items-baseline gap-2">
-          <h2 id="kpiResponden" class="text-3xl font-extrabold text-slate-900">636</h2>
-          <span id="kpiTotalSiswa" class="text-xs font-medium text-slate-500">/ 639 siswa</span>
+        <div class="card">
+          <div class="card-emoji">🌏</div>
+          <h3 class="card-title">Jaga Bumi</h3>
+          <p class="card-text">Semakin sedikit energi terbuang, semakin bersih udara kita.</p>
         </div>
-        <p id="kpiPartisipasi" class="mt-1 text-xs font-medium text-emerald-600">Partisipasi 99.4%</p>
-      </div>
-
-      <!-- KPI 2: Rata-rata Skor Butir -->
-      <div class="card-hover bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Rata-rata Skor Butir</span>
-          <span class="p-2 rounded-lg bg-emerald-50 text-emerald-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
-            </svg>
-          </span>
-        </div>
-        <div class="mt-3 flex items-baseline gap-2">
-          <h2 id="kpiAvgSkor" class="text-3xl font-extrabold text-emerald-600">3.36</h2>
-          <span class="text-xs font-medium text-slate-500">/ 4.00 (Sangat Baik)</span>
-        </div>
-        <p id="kpiAvgTotal" class="mt-1 text-xs text-slate-500">Rata-rata skor total: 33.62 / 40</p>
-      </div>
-
-      <!-- KPI 3: Kategori Sangat Baik -->
-      <div class="card-hover bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Kategori Sangat Baik</span>
-          <span class="p-2 rounded-lg bg-teal-50 text-teal-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z" />
-            </svg>
-          </span>
-        </div>
-        <div class="mt-3 flex items-baseline gap-2">
-          <h2 id="kpiSangatBaikPct" class="text-3xl font-extrabold text-teal-600">59.4%</h2>
-          <span id="kpiSangatBaikCount" class="text-xs font-medium text-slate-500">(378 siswa)</span>
-        </div>
-        <p id="kpiBaikInfo" class="mt-1 text-xs text-slate-500">Kategori Baik: 36.8% (234 siswa)</p>
-      </div>
-
-      <!-- KPI 4: Perilaku Sering / Selalu -->
-      <div class="card-hover bg-white rounded-2xl p-5 border border-slate-200/80 shadow-sm">
-        <div class="flex items-center justify-between">
-          <span class="text-xs font-semibold uppercase tracking-wider text-slate-400">Perilaku Positif (Skor 3–4)</span>
-          <span class="p-2 rounded-lg bg-amber-50 text-amber-600">
-            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
-            </svg>
-          </span>
-        </div>
-        <div class="mt-3 flex items-baseline gap-2">
-          <h2 id="kpiPersenSering" class="text-3xl font-extrabold text-slate-900">90.79%</h2>
-          <span class="text-xs font-medium text-slate-500">rata-rata</span>
-        </div>
-        <p class="mt-1 text-xs text-slate-500">Tertinggi: P01 (3.51) • Terendah: P04 & P09 (3.22)</p>
-      </div>
-    </section>
-
-    <!-- Insight & Sorotan Banner -->
-    <section class="bg-gradient-to-r from-emerald-600 to-teal-700 rounded-2xl p-5 text-white shadow-sm">
-      <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
-        <div class="space-y-1">
-          <span class="text-[11px] font-bold uppercase tracking-wider bg-white/20 px-2.5 py-0.5 rounded-full">Sorotan Hasil Survei (12 Okt – 5 Nov 2026)</span>
-          <p id="insightText" class="text-sm sm:text-base font-medium leading-relaxed text-emerald-50 pt-1">
-            Dari 636 responden kelas XI, 96.2% siswa berada pada kategori Sangat Baik dan Baik. Jurusan PMN mencatat rata-rata tertinggi (3.51), sementara kebiasaan paling menonjol adalah praktik hemat energi sehari-hari (P01: 3.51) dan mencabut charger setelah dipakai (P06: 3.45).
-          </p>
+        <div class="card">
+          <div class="card-emoji">🙆‍♂️</div>
+          <h3 class="card-title">Bersama-sama</h3>
+          <p class="card-text">Jika semua warga sekolah ikut, perubahan jadi lebih besar.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- Charts Row 1: Kategori Skor & Perbandingan Jurusan -->
-    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      <!-- Chart 1: Doughnut Kategori -->
-      <div class="lg:col-span-5 bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col">
-        <div class="mb-4">
-          <h3 id="kategoriChartTitle" class="text-base font-bold text-slate-900">Distribusi Kategori Perilaku</h3>
-          <p class="text-xs text-slate-500">Proporsi Sangat Baik (3.26–4.00), Baik (2.51–3.25), Cukup, Kurang</p>
+  <!-- AKSI -->
+  <section id="aksi" class="section section-alt">
+    <div class="container">
+      <h2 class="section-title">Yuk, mulai dari hal kecil</h2>
+      <p class="section-sub">Pilih satu kebiasaan hari ini. Besok tambah lagi satu.</p>
+
+      <ul class="tips-list">
+        <li>Matikan lampu saat keluar kelas</li>
+        <li>Cabut charger yang tidak dipakai</li>
+        <li>Matikan kipas saat ruangan kosong</li>
+        <li>Manfaatkan cahaya matahari di siang hari</li>
+        <li>Ingatkan teman yang lupa hemat energi</li>
+      </ul>
+
+      <p class="closing">KitaPeduli bukan hanya program, ini gerakan kita semua. 💚</p>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <h2 class="section-title">About KitaPeduli</h2>
+      <p class="section-sub">
+        KitaPeduli adalah gerakan kampanye hemat energi yang lahir dari kepedulian kami terhadap lingkungan sekolah. 
+        Kami percaya bahwa perubahan besar dimulai dari langkah kecil yang dilakukan bersama-sama. 
+        Melalui kampanye ini, kami ingin mengajak seluruh warga sekolah untuk lebih sadar dan peduli terhadap penggunaan energi 
+        mulai dari hal-hal sederhana seperti mematikan lampu, mencabut charger, hingga mematikan kipas saat ruangan kosong.
+      </p>
+
+      <div class="profiles">
+        <div class="profile-card">
+          <div class="profile-number">NM</div>
+          <h3 class="profile-name">Ni Made Ayu Carasia S.</h3>
+          <p class="profile-role">Part of KitaPeduli</p>
         </div>
-        <div class="relative flex-1 min-h-[270px] flex items-center justify-center">
-          <canvas id="kategoriChart"></canvas>
+        <div class="profile-card">
+          <div class="profile-number">KA</div>
+          <h3 class="profile-name">Khaliq Adlu</h3>
+          <p class="profile-role">Part of KitaPeduli</p>
+        </div>
+        <div class="profile-card">
+          <div class="profile-number">NA</div>
+          <h3 class="profile-name">Nizar Al Hafiz</h3>
+          <p class="profile-role">Part of KitaPeduli</p>
         </div>
       </div>
+    </div>
+  </section>
 
-      <!-- Chart 2: Perbandingan Jurusan -->
-      <div class="lg:col-span-7 bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col">
-        <div class="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div>
-            <h3 class="text-base font-bold text-slate-900">Perbandingan Skor & Kategori per Jurusan</h3>
-            <p class="text-xs text-slate-500">Rata-rata skor (1.00–4.00) untuk 7 kompetensi keahlian</p>
-          </div>
-          <div class="inline-flex rounded-lg bg-slate-100 p-0.5 border border-slate-200 self-start">
-            <button id="btnJurusanAvg" class="px-2.5 py-1 text-xs font-bold rounded-md bg-white text-emerald-700 shadow-sm transition cursor-pointer">Rata-rata Skor</button>
-            <button id="btnJurusanStack" class="px-2.5 py-1 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer">Sebaran Kategori</button>
-          </div>
-        </div>
-        <div class="relative flex-1 min-h-[270px]">
+ <!-- DATA & FAKTA -->
+  <section id="data" class="section">
+    <div class="container">
+      <h2 class="section-title">Data & Fakta</h2>
+      <p class="section-sub">Berdasarkan hasil kuesioner dari 636 siswa kelas XI terkait perilaku hemat energi.</p>
+
+      <!-- BARIS 1: GRAFIK PERILAKU (Lebar Penuh supaya teks aman) -->
+      <div style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); max-width: 900px; margin: 0 auto 1.5rem;">
+        <h3 style="text-align: center; margin-bottom: 1rem; color: var(--color-primary); font-size: 1.05rem;">Rata-rata Skor Perilaku</h3>
+        <canvas id="energiChart" style="max-height: 350px;"></canvas>
+      </div>
+
+      <!-- BARIS 2: CONTAINER DUA GRAFIK (Jurusan & Donat) -->
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto 1.5rem;">
+        
+        <!-- GRAFIK BARU: Jurusan -->
+        <div style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+          <h3 style="text-align: center; margin-bottom: 1rem; color: var(--color-primary); font-size: 1.05rem;">Skor per Jurusan (Terendah - Tertinggi)</h3>
           <canvas id="jurusanChart"></canvas>
         </div>
-      </div>
-    </section>
 
-    <!-- Charts Row 2: Analisis 10 Butir Kuesioner (P01 - P10) -->
-    <section class="bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm">
-      <div class="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <h3 id="butirChartTitle" class="text-base font-bold text-slate-900">Analisis 10 Butir Pernyataan Kuesioner (P01 – P10)</h3>
-          <p id="butirChartSubtitle" class="text-xs text-slate-500">Rata-rata skor per indikator perilaku (Skala Likert 1–4)</p>
-        </div>
-        <div class="inline-flex rounded-lg bg-slate-100 p-0.5 border border-slate-200 self-start">
-          <button id="btnButirAvg" class="px-3 py-1 text-xs font-bold rounded-md bg-white text-emerald-700 shadow-sm transition cursor-pointer">Rata-rata Skor</button>
-          <button id="btnButirPersen" class="px-3 py-1 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer">Sering vs Jarang (%)</button>
-        </div>
-      </div>
-      <div class="relative min-h-[320px]">
-        <canvas id="butirChart"></canvas>
-      </div>
-    </section>
-
-    <!-- Charts Row 3: Sebaran Skor Total & Rayon / Gaya Belajar -->
-    <section class="grid grid-cols-1 lg:grid-cols-12 gap-6">
-      <!-- Chart 4: Sebaran Skor Total (10 - 40) -->
-      <div class="lg:col-span-6 bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col">
-        <div class="mb-4">
-          <h3 class="text-base font-bold text-slate-900">Sebaran Skor Total Responden (10 – 40)</h3>
-          <p class="text-xs text-slate-500">Distribusi frekuensi nilai akumulasi 10 butir (Puncak di skor 40: 86 siswa)</p>
-        </div>
-        <div class="relative flex-1 min-h-[260px]">
-          <canvas id="sebaranSkorChart"></canvas>
-        </div>
-      </div>
-
-      <!-- Chart 5: Perbandingan Rayon & Gaya Belajar -->
-      <div class="lg:col-span-6 bg-white rounded-2xl p-6 border border-slate-200/80 shadow-sm flex flex-col">
-        <div class="mb-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-          <div>
-            <h3 id="dimensiChartTitle" class="text-base font-bold text-slate-900">Perbandingan Skor per Rayon</h3>
-            <p id="dimensiChartSubtitle" class="text-xs text-slate-500">Rata-rata skor perilaku hemat energi di 7 wilayah rayon</p>
-          </div>
-          <div class="inline-flex rounded-lg bg-slate-100 p-0.5 border border-slate-200 self-start">
-            <button id="btnDimensiRayon" class="px-2.5 py-1 text-xs font-bold rounded-md bg-white text-emerald-700 shadow-sm transition cursor-pointer">Per Rayon</button>
-            <button id="btnDimensiBelajar" class="px-2.5 py-1 text-xs font-semibold rounded-md text-slate-600 hover:text-slate-900 transition cursor-pointer">Gaya Belajar</button>
+        <!-- GRAFIK LAMA: Kategori Siswa (Doughnut) -->
+        <div style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center;">
+          <h3 style="text-align: center; margin-bottom: 1rem; color: var(--color-primary); font-size: 1.05rem;">Kategori Kesadaran</h3>
+          <div style="width: 100%; max-width: 250px;">
+            <canvas id="kategoriChart"></canvas>
           </div>
         </div>
-        <div class="relative flex-1 min-h-[260px]">
-          <canvas id="dimensiChart"></canvas>
-        </div>
-      </div>
-    </section>
 
-    <!-- Tabel Rincian Per Rombel (18 Rombel) -->
-    <section class="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden">
-      <div class="p-6 border-b border-slate-100 flex flex-col sm:flex-row sm:items-center justify-between gap-3">
-        <div>
-          <h3 class="text-base font-bold text-slate-900">Rekapitulasi Per Rombongan Belajar (18 Rombel Kelas XI)</h3>
-          <p class="text-xs text-slate-500">Urutan peringkat rata-rata skor perilaku hemat energi tiap kelas</p>
-        </div>
-        <div class="flex items-center gap-2">
-          <input type="text" id="searchRombel" placeholder="Cari rombel (mis. PPLG XI-1)..." class="px-3 py-1.5 text-xs border border-slate-200 rounded-lg focus:outline-none focus:border-emerald-500 w-52" />
-          <button id="exportCsvBtn" class="px-3 py-1.5 text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white rounded-lg transition cursor-pointer">
-            Ekspor CSV
-          </button>
-        </div>
       </div>
 
-      <div class="overflow-x-auto max-h-[420px]">
-        <table class="w-full text-left border-collapse">
-          <thead class="bg-slate-50 sticky top-0 z-10 border-b border-slate-200 text-[11px] font-bold uppercase tracking-wider text-slate-500">
-            <tr>
-              <th class="py-3 px-4">Peringkat</th>
-              <th class="py-3 px-4">Rombel</th>
-              <th class="py-3 px-4">Jurusan</th>
-              <th class="py-3 px-4 text-center">Responden</th>
-              <th class="py-3 px-4 text-center">Rata-rata Skor</th>
-              <th class="py-3 px-4 text-center">Skor Total</th>
-              <th class="py-3 px-4 text-center">Sangat Baik</th>
-              <th class="py-3 px-4 text-center">Baik</th>
-              <th class="py-3 px-4 text-center">Cukup / Kurang</th>
-            </tr>
-          </thead>
-          <tbody id="rombelTableBody" class="divide-y divide-slate-100 text-xs text-slate-700">
-            <!-- Diisi oleh script.js -->
-          </tbody>
-        </table>
+      <!-- BARIS 3: GRAFIK ROMBEL (Lebar Penuh) -->
+      <div style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); max-width: 900px; margin: 0 auto;">
+        <h3 style="text-align: center; margin-bottom: 1rem; color: var(--color-primary); font-size: 1.05rem;">Skor Kesadaran Berdasarkan Rombel</h3>
+        <canvas id="rombelChart" style="max-height: 350px;"></canvas>
       </div>
-    </section>
+      
+      <!-- Kesimpulan Data yang Diperbarui -->
+      <p class="closing" style="margin-top: 1.5rem; font-weight: 500; font-size: 0.95rem; color: var(--color-text-soft);">
+        Fakta: Jurusan <strong>PPLG</strong> dan <strong>MPLB</strong> tercatat memiliki skor rata-rata terendah. Secara umum, <strong>keberanian menegur teman</strong> dan <strong>membatasi gawai</strong> adalah kebiasaan yang paling jarang dilakukan.
+      </p>
+    </div>
+  </section>
 
-  </main>
 
-  <!-- Footer -->
-  <footer class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 text-center text-xs text-slate-400">
-    KitaPeduli.Project — Fase 2 • Sumber Data: Kuesioner ENERGI XI (Perilaku) • Visualisasi menggunakan Chart.js
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <p>🌱 KitaPeduli · Kelompok 9</p>
+      <p>&copy; 2026 KitaPeduli. All rights reserved.</p>
+    </div>
   </footer>
-
-  <!-- Urutan Script sesuai folder: data-perilaku-energi.js -> script.js -->
-  <script src="data-perilaku-energi.js"></script>
+  <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
