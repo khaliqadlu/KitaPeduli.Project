@@ -3,14 +3,16 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KitaPeduli · Hemat Energi</title>
+  <title>KitaPeduli · Gerakan Hemat Energi Siswa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
-    <!-- NAVBAR -->
+  <!-- NAVBAR -->
   <nav class="navbar">
     <div class="container navbar-inner">
       <a href="#hero" class="navbar-brand">
@@ -19,9 +21,11 @@
       </a>
       <ul class="navbar-menu">
         <li><a href="#hero" class="navbar-link">Home</a></li>
-        <li><a href="#about" class="navbar-link">About</a></li>
-        <li><a href="#data" class="navbar-link">Data</a></li>
+        <li><a href="#kenapa" class="navbar-link">Kenapa</a></li>
         <li><a href="#aksi" class="navbar-link">Aksi</a></li>
+        <li><a href="#about" class="navbar-link">About</a></li>
+        <li><a href="#data" class="navbar-link">Data & Fakta</a></li>
+        <li><span class="navbar-link disabled">Coming Soon</span></li>
       </ul>
     </div>
   </nav>
@@ -29,33 +33,67 @@
   <!-- HERO -->
   <header id="hero" class="hero">
     <div class="container hero-inner">
+      <span class="hero-badge">🌱 Inisiatif Siswa Peduli Energi · Kelas XI</span>
       <h1 class="hero-title">KitaPeduli</h1>
       <p class="hero-slogan">"We Believed, We Could, So We Did"</p>
-      <a href="#aksi" class="btn">Aku Mau Ikut Peduli</a>
+      <a href="#aksi" class="btn">
+        <span>Aku Mau Ikut Peduli</span>
+        <span class="btn-icon">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </span>
+      </a>
     </div>
   </header>
 
   <!-- KENAPA -->
   <section id="kenapa" class="section">
     <div class="container">
-      <h2 class="section-title">Kenapa harus peduli?</h2>
-      <p class="section-sub">Energi yang kita pakai setiap hari itu terbatas dan dampaknya nyata untuk bumi.</p>
+      <div class="section-header fade-up">
+        <span class="section-badge">Kesadaran Lingkungan</span>
+        <h2 class="section-title">Kenapa harus peduli?</h2>
+        <p class="section-sub">Energi yang kita pakai setiap hari itu terbatas dan dampaknya sangat nyata untuk kelestarian bumi dan masa depan kita.</p>
+      </div>
 
       <div class="cards">
-        <div class="card">
-          <div class="card-emoji">💪</div>
+        <div class="card fade-up">
+          <span class="card-number">01</span>
+          <div class="card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+          </div>
           <h3 class="card-title">Hemat Listrik</h3>
-          <p class="card-text">Matikan lampu dan alat elektronik yang tidak dipakai.</p>
+          <p class="card-text">Mematikan lampu, proyektor, dan alat elektronik di kelas saat selesai jam pelajaran dapat menghemat konsumsi energi secara signifikan.</p>
         </div>
-        <div class="card">
-          <div class="card-emoji">🌏</div>
+
+        <div class="card fade-up">
+          <span class="card-number">02</span>
+          <div class="card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+              <path d="M2 12h20"></path>
+            </svg>
+          </div>
           <h3 class="card-title">Jaga Bumi</h3>
-          <p class="card-text">Semakin sedikit energi terbuang, semakin bersih udara kita.</p>
+          <p class="card-text">Pembangkit listrik masih banyak mengandalkan bahan bakar fosil. Semakin sedikit energi terbuang, emisi karbon berkurang dan udara lebih bersih.</p>
         </div>
-        <div class="card">
-          <div class="card-emoji">🙆‍♂️</div>
+
+        <div class="card fade-up">
+          <span class="card-number">03</span>
+          <div class="card-icon" aria-hidden="true">
+            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
           <h3 class="card-title">Bersama-sama</h3>
-          <p class="card-text">Jika semua warga sekolah ikut, perubahan jadi lebih besar.</p>
+          <p class="card-text">Jika seluruh 600+ siswa dan warga sekolah membiasakan hal baik ini, akumulasi penghematan menciptakan dampak nyata yang luar biasa.</p>
         </div>
       </div>
     </div>
@@ -64,104 +102,238 @@
   <!-- AKSI -->
   <section id="aksi" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">Yuk, mulai dari hal kecil</h2>
-      <p class="section-sub">Pilih satu kebiasaan hari ini. Besok tambah lagi satu.</p>
+      <div class="section-header fade-up">
+        <span class="section-badge">Langkah Nyata</span>
+        <h2 class="section-title">Yuk, mulai dari hal kecil</h2>
+        <p class="section-sub">Pilih satu kebiasaan sederhana hari ini. Konsisten, lalu ajak teman satu kelas untuk ikut melakukan hal yang sama.</p>
+      </div>
 
-      <ul class="tips-list">
-        <li>Matikan lampu saat keluar kelas</li>
-        <li>Cabut charger yang tidak dipakai</li>
-        <li>Matikan kipas saat ruangan kosong</li>
-        <li>Manfaatkan cahaya matahari di siang hari</li>
-        <li>Ingatkan teman yang lupa hemat energi</li>
-      </ul>
+      <div class="tips-wrapper">
+        <ul class="tips-list">
+          <li class="fade-up">
+            <span class="tip-check">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </span>
+            <span class="tip-text">Matikan lampu saat keluar kelas dan ruangan tidak digunakan</span>
+          </li>
+          <li class="fade-up">
+            <span class="tip-check">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </span>
+            <span class="tip-text">Cabut charger laptop dan gawai setelah baterai penuh</span>
+          </li>
+          <li class="fade-up">
+            <span class="tip-check">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </span>
+            <span class="tip-text">Matikan kipas angin dan AC saat jam istirahat atau kelas kosong</span>
+          </li>
+          <li class="fade-up">
+            <span class="tip-check">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </span>
+            <span class="tip-text">Manfaatkan ventilasi dan cahaya matahari alami di siang hari</span>
+          </li>
+          <li class="fade-up">
+            <span class="tip-check">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+              </svg>
+            </span>
+            <span class="tip-text">Berani mengingatkan teman dengan sopan saat melihat pemborosan listrik</span>
+          </li>
+        </ul>
+      </div>
 
-      <p class="closing">KitaPeduli bukan hanya program, ini gerakan kita semua. 💚</p>
+      <div class="closing-banner fade-up">
+        <span>🌱</span>
+        <span>KitaPeduli bukan hanya program sesaat, ini adalah komitmen dan gerakan kita bersama.</span>
+      </div>
     </div>
   </section>
 
   <!-- ABOUT -->
   <section id="about" class="section">
     <div class="container">
-      <h2 class="section-title">About KitaPeduli</h2>
-      <p class="section-sub">
-        KitaPeduli adalah gerakan kampanye hemat energi yang lahir dari kepedulian kami terhadap lingkungan sekolah. 
-        Kami percaya bahwa perubahan besar dimulai dari langkah kecil yang dilakukan bersama-sama. 
-        Melalui kampanye ini, kami ingin mengajak seluruh warga sekolah untuk lebih sadar dan peduli terhadap penggunaan energi 
-        mulai dari hal-hal sederhana seperti mematikan lampu, mencabut charger, hingga mematikan kipas saat ruangan kosong.
-      </p>
+      <div class="section-header fade-up">
+        <span class="section-badge">Tentang Inisiatif</span>
+        <h2 class="section-title">About KitaPeduli</h2>
+        <p class="section-sub">
+          KitaPeduli lahir dari kepedulian terhadap lingkungan sekolah. Kami percaya bahwa perubahan berkelanjutan
+          dimulai dari kesadaran bersama dan aksi nyata sehari-hari.
+        </p>
+      </div>
+
+      <div class="about-card fade-up">
+        <p>
+          Melalui kampanye berbasis data ini, kami mengumpulkan fakta langsung dari ratusan siswa untuk memahami
+          kebiasaan konsumsi energi di sekolah. Harapannya, hasil riset ini menjadi dasar bagi seluruh warga sekolah
+          untuk lebih aktif dalam menekan pemborosan energi dan mewujudkan lingkungan belajar yang hijau.
+        </p>
+      </div>
 
       <div class="profiles">
-        <div class="profile-card">
-          <div class="profile-number">NM</div>
+        <div class="profile-card fade-up">
+          <div class="profile-avatar">
+            <span>NM</span>
+          </div>
+          <span class="profile-badge">Tim Penggerak</span>
           <h3 class="profile-name">Ni Made Ayu Carasia S.</h3>
-          <p class="profile-role">Part of KitaPeduli</p>
+          <p class="profile-role">Kelompok 9 · Kelas XI</p>
         </div>
-        <div class="profile-card">
-          <div class="profile-number">KA</div>
+
+        <div class="profile-card fade-up">
+          <div class="profile-avatar">
+            <span>KA</span>
+          </div>
+          <span class="profile-badge">Tim Penggerak</span>
           <h3 class="profile-name">Khaliq Adlu</h3>
-          <p class="profile-role">Part of KitaPeduli</p>
+          <p class="profile-role">Kelompok 9 · Kelas XI</p>
         </div>
-        <div class="profile-card">
-          <div class="profile-number">NA</div>
+
+        <div class="profile-card fade-up">
+          <div class="profile-avatar">
+            <span>NA</span>
+          </div>
+          <span class="profile-badge">Tim Penggerak</span>
           <h3 class="profile-name">Nizar Al Hafiz</h3>
-          <p class="profile-role">Part of KitaPeduli</p>
+          <p class="profile-role">Kelompok 9 · Kelas XI</p>
         </div>
       </div>
     </div>
   </section>
 
- <!-- DATA & FAKTA -->
-  <section id="data" class="section">
+  <!-- DATA & FAKTA -->
+  <section id="data" class="section section-alt">
     <div class="container">
-      <h2 class="section-title">Data & Fakta</h2>
-      <p class="section-sub">Berdasarkan hasil kuesioner dari 636 siswa kelas XI terkait perilaku hemat energi.</p>
-
-      <!-- BARIS 1: GRAFIK PERILAKU (Lebar Penuh supaya teks aman) -->
-      <div style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); max-width: 900px; margin: 0 auto 1.5rem;">
-        <h3 style="text-align: center; margin-bottom: 1rem; color: var(--color-primary); font-size: 1.05rem;">Rata-rata Skor Perilaku</h3>
-        <canvas id="energiChart" style="max-height: 350px;"></canvas>
+      <div class="section-header fade-up">
+        <span class="section-badge">Riset & Statistik</span>
+        <h2 class="section-title">Data & Fakta</h2>
+        <p class="section-sub">Berdasarkan hasil survei perilaku hemat energi yang diisi oleh 636 siswa kelas XI.</p>
       </div>
 
-      <!-- BARIS 2: CONTAINER DUA GRAFIK (Jurusan & Donat) -->
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; max-width: 900px; margin: 0 auto 1.5rem;">
-        
-        <!-- GRAFIK BARU: Jurusan -->
-        <div style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
-          <h3 style="text-align: center; margin-bottom: 1rem; color: var(--color-primary); font-size: 1.05rem;">Skor per Jurusan (Terendah - Tertinggi)</h3>
-          <canvas id="jurusanChart"></canvas>
+      <!-- Ringkasan Statistik Angka (Dengan Animasi Count-Up) -->
+      <div class="stats-grid">
+        <div class="stat-card fade-up">
+          <span class="stat-value" data-target="636" data-decimals="0">0</span>
+          <span class="stat-label">Responden Siswa XI</span>
+          <span class="stat-sub">99.4% tingkat partisipasi terdata</span>
         </div>
 
-        <!-- GRAFIK LAMA: Kategori Siswa (Doughnut) -->
-        <div style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); display: flex; flex-direction: column; align-items: center; justify-content: center;">
-          <h3 style="text-align: center; margin-bottom: 1rem; color: var(--color-primary); font-size: 1.05rem;">Kategori Kesadaran</h3>
-          <div style="width: 100%; max-width: 250px;">
-            <canvas id="kategoriChart"></canvas>
+        <div class="stat-card fade-up">
+          <span class="stat-value" data-target="3.36" data-decimals="2" data-suffix="/4.00">0</span>
+          <span class="stat-label">Rata-rata Skor Kesadaran</span>
+          <span class="stat-sub">Masuk kategori perilaku Baik</span>
+        </div>
+
+        <div class="stat-card fade-up">
+          <span class="stat-value" data-target="59.4" data-decimals="1" data-suffix="%">0</span>
+          <span class="stat-label">Siswa "Sangat Baik"</span>
+          <span class="stat-sub">378 siswa konsisten hemat energi</span>
+        </div>
+      </div>
+
+      <!-- GRAFIK 1: PERILAKU PER BUTIR -->
+      <div class="chart-card fade-up" data-chart-trigger="energiChart">
+        <div class="chart-header">
+          <div>
+            <h3 class="chart-title">Rata-rata Skor Per Butir Perilaku</h3>
+            <p class="chart-subtitle">Skala 1 (Sangat Jarang) sampai 4 (Sangat Sering) pada 10 aspek perilaku</p>
+          </div>
+          <span class="chart-tag">10 Indikator Survei</span>
+        </div>
+        <div class="chart-wrapper chart-wrapper-tall">
+          <canvas id="energiChart" data-chart-id="energiChart"></canvas>
+        </div>
+      </div>
+
+      <!-- GRID DUA GRAFIK: JURUSAN & DONUT KATEGORI -->
+      <div class="chart-grid">
+        
+        <!-- GRAFIK 2: JURUSAN -->
+        <div class="chart-card fade-up" data-chart-trigger="jurusanChart">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Skor Rata-rata per Jurusan</h3>
+              <p class="chart-subtitle">Diurutkan dari jurusan terendah hingga tertinggi</p>
+            </div>
+            <span class="chart-tag">Komparasi Jurusan</span>
+          </div>
+          <div class="chart-wrapper">
+            <canvas id="jurusanChart" data-chart-id="jurusanChart"></canvas>
+          </div>
+        </div>
+
+        <!-- GRAFIK 3: KATEGORI KESADARAN -->
+        <div class="chart-card fade-up" data-chart-trigger="kategoriChart">
+          <div class="chart-header">
+            <div>
+              <h3 class="chart-title">Proporsi Kategori Kesadaran</h3>
+              <p class="chart-subtitle">Sebaran klasifikasi perilaku seluruh responden</p>
+            </div>
+            <span class="chart-tag">Distribusi Siswa</span>
+          </div>
+          <div class="chart-wrapper chart-wrapper-doughnut">
+            <canvas id="kategoriChart" data-chart-id="kategoriChart"></canvas>
           </div>
         </div>
 
       </div>
 
-      <!-- BARIS 3: GRAFIK ROMBEL (Lebar Penuh) -->
-      <div style="background: var(--color-surface); padding: 1.5rem; border-radius: var(--radius-lg); border: 1px solid var(--color-border); max-width: 900px; margin: 0 auto;">
-        <h3 style="text-align: center; margin-bottom: 1rem; color: var(--color-primary); font-size: 1.05rem;">Skor Kesadaran Berdasarkan Rombel</h3>
-        <canvas id="rombelChart" style="max-height: 350px;"></canvas>
+      <!-- GRAFIK 4: ROMBEL -->
+      <div class="chart-card fade-up" data-chart-trigger="rombelChart">
+        <div class="chart-header">
+          <div>
+            <h3 class="chart-title">Skor Kesadaran Berdasarkan Rombel</h3>
+            <p class="chart-subtitle">Perbandingan rata-rata skor kesadaran pada tiap rombongan belajar</p>
+          </div>
+          <span class="chart-tag">Seluruh Rombel XI</span>
+        </div>
+        <div class="chart-wrapper chart-wrapper-tall">
+          <canvas id="rombelChart" data-chart-id="rombelChart"></canvas>
+        </div>
       </div>
       
-      <!-- Kesimpulan Data yang Diperbarui -->
-      <p class="closing" style="margin-top: 1.5rem; font-weight: 500; font-size: 0.95rem; color: var(--color-text-soft);">
-        Fakta: Jurusan <strong>PPLG</strong> dan <strong>MPLB</strong> tercatat memiliki skor rata-rata terendah. Secara umum, <strong>keberanian menegur teman</strong> dan <strong>membatasi gawai</strong> adalah kebiasaan yang paling jarang dilakukan.
-      </p>
+      <!-- KESIMPULAN / INSIGHT DATA -->
+      <div class="data-insight fade-up">
+        <div class="data-insight-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="10"></circle>
+            <line x1="12" y1="16" x2="12" y2="12"></line>
+            <line x1="12" y1="8" x2="12.01" y2="8"></line>
+          </svg>
+        </div>
+        <div class="data-insight-content">
+          <h4>Temuan Utama Riset:</h4>
+          <p>
+            Jurusan <strong>PPLG</strong> dan <strong>MPLB</strong> tercatat memiliki skor rata-rata terendah. 
+            Secara umum di seluruh kelas, <strong>keberanian menegur teman yang boros listrik</strong> dan 
+            <strong>membatasi pemakaian gawai</strong> adalah dua kebiasaan yang paling jarang dilakukan siswa. 
+            Inilah fokus utama yang ingin kita dorong bersama lewat kampanye KitaPeduli.
+          </p>
+        </div>
+      </div>
+
     </div>
   </section>
-
 
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <p>🌱 KitaPeduli · Kelompok 9</p>
-      <p>&copy; 2026 KitaPeduli. All rights reserved.</p>
+      <div class="footer-brand">🌱 KitaPeduli · Gerakan Hemat Energi</div>
+      <p>Proyek Kolaborasi Kelompok 9 · Kelas XI</p>
+      <p class="footer-copy">&copy; 2026 KitaPeduli. Data dan inisiatif kampanye lingkungan sekolah.</p>
     </div>
   </footer>
+
   <script src="data.js"></script>
   <script src="script.js"></script>
 </body>
