@@ -6,7 +6,42 @@
 document.addEventListener('DOMContentLoaded', () => {
   initNavigation();
   initScrollAnimations();
+  initChallenge();
 });
+
+/* ==========================================================================
+   Tantangan Hemat Energi: checklist interaktif
+   ========================================================================== */
+function initChallenge() {
+  const checkboxes = [...document.querySelectorAll('.challenge-checkbox')];
+  const count = document.getElementById('challenge-count');
+  const progress = document.querySelector('.challenge-progress-track');
+  const progressFill = document.querySelector('.challenge-progress-fill');
+  const message = document.getElementById('challenge-message');
+
+  if (!checkboxes.length || !count || !progress || !progressFill || !message) return;
+
+  const updateProgress = () => {
+    const completed = checkboxes.filter(checkbox => checkbox.checked).length;
+    const total = checkboxes.length;
+    const percentage = (completed / total) * 100;
+
+    count.textContent = `${completed}/${total}`;
+    progress.setAttribute('aria-valuenow', completed);
+    progressFill.style.width = `${percentage}%`;
+
+    if (completed === total) {
+      message.textContent = 'Keren! Semua aksi hari ini sudah dilakukan. Ajak teman untuk ikut.';
+    } else if (completed > 0) {
+      message.textContent = `${completed} aksi selesai—lanjutkan satu langkah lagi!`;
+    } else {
+      message.textContent = 'Ayo mulai—setiap aksi kecil berarti.';
+    }
+  };
+
+  checkboxes.forEach(checkbox => checkbox.addEventListener('change', updateProgress));
+  updateProgress();
+}
 
 /* ==========================================================================
    1. Navigasi: Smooth Scroll & Active Indicator saat Menggulir
